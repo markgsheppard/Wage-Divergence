@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.page-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4d4d4d;
+  margin: 0;
+  padding-right: 220px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 9px;
+  color: #666;
+  margin: 4px 0 0 0;
+  line-height: 1.3;
+  padding-right: 220px;
+}
+
+.header-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+}
+
+.index-control {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  color: #888;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.index-control label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.index-toggle {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  display: inline-block;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.index-toggle:hover {
+  border-color: #888;
+}
+
+.index-toggle.active {
+  background: #aaa;
+}
+
+.slider-container {
+  display: none;
+  align-items: center;
+  margin-left: auto;
+}
+
+.slider-container.visible {
+  display: flex;
+}
+
+.index-slider {
+  width: 100px;
+  height: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ddd;
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+}
+
+.index-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 6px;
+  background: #888;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.index-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.index-slider::-moz-range-thumb {
+  width: 6px;
+  height: 6px;
+  background: #888;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.index-year {
+  font-size: 8px;
+  color: #888;
+  min-width: 24px;
+  margin-left: 4px;
+  font-weight: normal;
+}
+
+.legend-container {
+  width: 100%;
+}
+
+.legend-title {
+  font-size: 8px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.legend-bar {
+  height: 10px;
+  border-radius: 2px;
+  margin-bottom: 3px;
+}
+
+.legend-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  color: #888;
+}
+
+.caption {
+  font-size: 8px;
+  color: #888;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+#chart svg {
+  display: block;
+}
+
+.axis text {
+  font-size: 9px;
+  fill: #888;
+}
+
+.axis path,
+.axis line {
+  stroke: #ccc;
+}
+
+.grid line {
+  stroke: #ebebeb;
+  stroke-dasharray: 2,2;
+}
+
+.recession {
+  fill: #f7f7f7;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.2;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 11px;
+  pointer-events: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+  body {
+    padding: 20px 15px;
+  }
+  
+  .title {
+    font-size: 16px;
+    padding-right: 180px;
+  }
+  
+  .subtitle {
+    padding-right: 180px;
+  }
+  
+  .header-controls {
+    width: 170px;
+  }
+  
+  .index-slider {
+    width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 14px;
+    padding-right: 0;
+    margin-bottom: 50px;
+  }
+  
+  .subtitle {
+    padding-right: 0;
+  }
+  
+  .header-controls {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

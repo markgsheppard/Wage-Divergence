@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income by Decile (1982-2024) | Interactive Visualization</title>
+  <meta name="description" content="Interactive visualization showing annualized real earnings by income decile from 1982 to 2024, adjusted for inflation using CPI-U.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="page-wrapper">
+    <div class="chart-container">
+      <div class="header">
+        <h1 class="title">The Wage Gains Are Captured at the Top</h1>
+        <p class="subtitle">
+          Annualized Real Earnings by Income Decile, Shown with Curved Lines<br>
+          Weekly Pay Annualized, Adjusted to 2024 Dollars Using CPI-U<br>
+          Data From 1982 to 2024
+        </p>
+        <div class="header-controls">
+          <div class="index-control">
+            <label>
+              <span class="index-toggle" id="indexToggle"></span>
+              Index
+            </label>
+            <div class="slider-container" id="sliderContainer">
+              <input type="range" class="index-slider" id="indexSlider" min="1982" max="2024" value="1982">
+              <span class="index-year" id="indexYearLabel">1982</span>
+            </div>
+          </div>
+          <div class="legend-container">
+            <div class="legend-title">Income Distribution by Decile</div>
+            <div class="legend-bar" id="legendBar"></div>
+            <div class="legend-labels">
+              <span>Lowest Income</span>
+              <span>Highest Income</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="chart"></div>
+      <p class="caption">
+        Source: Economic Policy Institute; Federal Reserve Bank of Minneapolis<br>
+        Note: Earnings derived from Current Population Survey Basic Monthly Extracts. 
+        Inflation adjustment uses Consumer Price Index for All Urban Consumers (CPI-U), base year 2024. 
+        Grey bars indicate NBER recession periods.<br>
+        Visualized by Mark G. Sheppard
+      </p>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/chart.js"></script>
+</body>
+</html>
